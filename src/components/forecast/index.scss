@@ -1,0 +1,16 @@
+.forecast {
+
+    &__cardContent {
+        display: flex;
+        flex-flow: column wrap;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__wrap-temp {
+        display: flex;
+        flex-flow: row wrap;
+        justify-content: center;
+    };
+
+}
