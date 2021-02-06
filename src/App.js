@@ -4,19 +4,16 @@ import {
     Switch,
     Route,
 } from 'react-router-dom';
-// import {useSelector} from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import LocationPage from './pages/locationPage';
 import ForecastPage from './pages/forecastPage';
 import SearchPage from './pages/searchPage';
-// import Loading from './components/loading';
+import Loading from './components/loading';
 import './app.css';
 
 const App = () => {
-    // const {isLoading} = useSelector((state) => state.general);
-
     return (
         <Router>
             <Grid
@@ -28,12 +25,8 @@ const App = () => {
                     item
                     className = ''
                     component = 'main'
-                    xs = { 4 }>
-                    {/* { isLoading
-                        ? (
-                            <Loading />
-                        )
-                        : ( */}
+                    xs = { 6 }>
+                    <Loading />
                     <Card
                         className = 'app__card'
                         variant = 'outlined'>
@@ -44,7 +37,6 @@ const App = () => {
                                     key = '/'
                                     path = '/'>
                                     <LocationPage />
-                                    {/* <SearchPage /> */}
                                 </Route>
                                 <Route
                                     exact
@@ -61,9 +53,6 @@ const App = () => {
                             </Switch>
                         </CardContent>
                     </Card>
-                    {/* )
-                    } */}
-
                 </Grid>
             </Grid>
         </Router>

@@ -1,7 +1,7 @@
 import * as types from '../actionTypes';
 
 const initialState = {
-    isLoading: false,
+    isLoading: true,
 };
 
 export default (state = initialState, action) => {

@@ -1,21 +1,19 @@
 import * as types from '../actionTypes';
 
 const initialState = {
-    currentCity:      '',
-    currentTemp:      0,
-    currentId:        0,
-    weather:          {},
-    forecast:         [],
-    searchList:       [],
-    errSearchList:    false, //попробовать перевести на компонент - передавать булевый через пэйлоад
-    isErrLocationApi: false,
-    descLocationApi:  '',
+    currentCity:          '',
+    currentTemp:          0,
+    currentId:            0,
+    weather:              {},
+    forecastList:         [],
+    searchList:           [],
+    isErrSearchList:      false,
+    locationErrorMessage: null,
 };
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case types.SET_WEATHER: {
-            console.log(action.data);
             const sityName = action.data.name;
             const id = action.data.id;
             const temp = Math.floor(action.data.main.temp - 273.15);
@@ -23,26 +21,25 @@ export default (state = initialState, action) => {
 
             return {
                 ...state,
-                currentCity:      sityName,
-                currentTemp:      temp,
-                currentId:        id,
-                weather:          weather,
-                isErrLocationApi: false,
+                currentCity:          sityName,
+                currentTemp:          temp,
+                currentId:            id,
+                weather:              weather,
+                locationErrorMessage: null,
             };
         }
 
         case types.SET_WEATHER_ERR_LOCATION: {
             return {
                 ...state,
-                isErrLocationApi:   true,
-                descErrLocationApi: action.errLocation.message,
+                locationErrorMessage: action.errLocation.message,
             };
         }
 
         case types.SET_FORECAST: {
             return {
                 ...state,
-                forecast: action.forecastList,
+                forecastList: action.forecastList,
             };
         }
 
@@ -51,22 +48,24 @@ export default (state = initialState, action) => {
 
             return {
                 ...state,
-                searchList:    searchList,
-                errSearchList: false,
+                searchList:      searchList,
+                isErrSearchList: false,
             };
         }
 
         case types.SET_SEARCH_ERR_TRUE: {
             return {
                 ...state,
-                errSearchList: true,
+                searchList:      [],
+                isErrSearchList: true,
+
             };
         }
 
         case types.SET_SEARCH_ERR_FALSE: {
             return {
                 ...state,
-                errSearchList: false,
+                isErrSearchList: false,
             };
         }
 
