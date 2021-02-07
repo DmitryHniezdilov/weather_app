@@ -1,0 +1,14 @@
+.error-location {
+    &__paper {
+        margin-bottom: 16px;
+        padding: 2px 4px;
+        display: flex;
+        align-items: center;
+        box-shadow: 0px 2px 1px -1px rgba(244,67,54,0.2), 0px 1px 1px 0px rgba(244,67,54,0.14), 0px 1px 3px 0px rgba(244,67,54,0.12) !important;
+    }
+
+    &__message {
+        padding-left: 4px;
+        color: #f44336;
+    }
+}

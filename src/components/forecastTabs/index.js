@@ -1,0 +1,54 @@
+import React from 'react';
+import AppBar from '@material-ui/core/AppBar';
+import Tabs from '@material-ui/core/Tabs';
+import Tab from '@material-ui/core/Tab';
+import {MONTH_SHORT, WEEKDAYS_SHORT} from '../../const';
+import './index.scss';
+
+function a11yProps(index) {
+    return {
+        id:              `scrollable-force-tab-${index}`,
+        'aria-controls': `scrollable-force-tabpanel-${index}`,
+    };
+}
+
+const ForecastTabs = ({handleChange, activeIndex, data }) => {
+    const tabs = data.map((item, index) => {
+        const date = new Date(item);
+        const weekday = date.getDay();
+
+        const month = Number(item.split('-')[ 1 ]);
+        const data = Number(item.split('-')[ 2 ]);
+
+        const label = `${WEEKDAYS_SHORT[ weekday ]}, ${data} ${MONTH_SHORT[ month ]}`;
+
+        return (
+            <Tab
+                key = { index }
+                label = { label }
+                { ...a11yProps(activeIndex) }
+            />
+        );
+    });
+
+    return (
+        <>
+            <AppBar
+                color = 'default'
+                position = 'static'>
+                <Tabs
+                    aria-label = 'scrollable force tabs example'
+                    indicatorColor = 'primary'
+                    scrollButtons = 'on'
+                    textColor = 'primary'
+                    value = { activeIndex }
+                    variant = 'scrollable'
+                    onChange = { handleChange }>
+                    {tabs}
+                </Tabs>
+            </AppBar>
+        </>
+    );
+};
+
+export default ForecastTabs;
