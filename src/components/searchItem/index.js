@@ -1,26 +1,12 @@
 import React from 'react';
-// import {useSelector} from 'react-redux';
-
-// import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
+import PropTypes from 'prop-types';
 import {Link as RouterLink} from 'react-router-dom';
 
 import './index.css';
-
-// const SearchItem = ({id, name, country, setSelectedItem}) => {
-//     return (
-//         <Link
-//             className = 'search_item'
-//             key = { id }
-//             to = '/forecast'
-//             onClick = { setSelectedItem }>
-//             View the weather in {name}, {country}
-//         </Link>
-//     );
-// };
 
 const SearchItem = ({id, name, country, setSelectedItem}) => {
     function ListItemLink(props) {
@@ -57,6 +43,13 @@ const SearchItem = ({id, name, country, setSelectedItem}) => {
             to = '/forecast'
         />
     );
+};
+
+SearchItem.prototype = {
+    setSelectedItem: PropTypes.func,
+    id:              PropTypes.number,
+    name:            PropTypes.string,
+    country:         PropTypes.string,
 };
 
 export default SearchItem;

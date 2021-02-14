@@ -1,5 +1,6 @@
-.forecast-tabs-content {
-    padding-top: 16px;
+.forecast-tabs-panel {
+    padding: 16px 16px 16px 0;
+    overflow: auto;
 
     &__wrap {
         display: flex;
@@ -30,6 +31,4 @@
         vertical-align: super;
         font-size: 0.6em;
     }
-
-
 }

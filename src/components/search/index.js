@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as weather from '../../redux/actions/weather';
 import SearchList from '../searchList';
 import SearchInput from '../searchInput';
+import PropTypes from 'prop-types';
 import './index.scss';
 
 const Search = () => {
@@ -14,6 +15,10 @@ const Search = () => {
         const getSelectedItem = searchList.find((item) => item.id === id);
 
         dispatch(weather.setItemToWeather(getSelectedItem));
+    };
+
+    setSelectedWeather.prototype = {
+        id: PropTypes.number,
     };
 
     return (

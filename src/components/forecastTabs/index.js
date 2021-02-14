@@ -2,6 +2,7 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import PropTypes from 'prop-types';
 import {MONTH_SHORT, WEEKDAYS_SHORT} from '../../const';
 import './index.scss';
 
@@ -49,6 +50,12 @@ const ForecastTabs = ({handleChange, activeIndex, data }) => {
             </AppBar>
         </>
     );
+};
+
+ForecastTabs.prototype = {
+    handleChange: PropTypes.func,
+    activeIndex:  PropTypes.number,
+    data:         PropTypes.array,
 };
 
 export default ForecastTabs;

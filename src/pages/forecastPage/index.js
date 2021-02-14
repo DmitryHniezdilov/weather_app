@@ -4,6 +4,7 @@ import { withRouter } from 'react-router';
 import ForecastTabs from '../../components/forecastTabs';
 import ForecastTabsPanel from '../../components/forecastTabsPanel';
 import * as weatherActions from '../../redux/actions/weather';
+import PropTypes from 'prop-types';
 import './index.scss';
 
 const ForecastPage = ({history}) => {
@@ -41,7 +42,7 @@ const ForecastPage = ({history}) => {
 
     return !!forecastList.length && (
         <div className = 'forecast'>
-            <h2 className = ''>{`Weather in ${currentCity} now`}</h2>
+            <h2 className = ''>{`Weather in ${currentCity}`}</h2>
             <ForecastTabs
                 activeIndex = { activeIndex }
                 data = { forecastTabsList }
@@ -53,6 +54,10 @@ const ForecastPage = ({history}) => {
             />
         </div>
     );
+};
+
+ForecastPage.prototype = {
+    history: PropTypes.object,
 };
 
 export default withRouter(ForecastPage);

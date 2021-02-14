@@ -1,8 +1,7 @@
 import React from 'react';
-// import {useSelector} from 'react-redux';
 import List from '@material-ui/core/List';
 import SearchItem from '../searchItem';
-
+import PropTypes from 'prop-types';
 import './index.css';
 
 const SearchList = ({data, setSelectedItem}) => {
@@ -21,6 +20,11 @@ const SearchList = ({data, setSelectedItem}) => {
             ))}
         </List>
     );
+};
+
+SearchList.prototype = {
+    setSelectedItem: PropTypes.func,
+    data:            PropTypes.array,
 };
 
 export default SearchList;
